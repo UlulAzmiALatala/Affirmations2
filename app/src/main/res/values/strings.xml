@@ -1,5 +1,8 @@
 <resources>
+    <!-- Nama aplikasi -->
     <string name="app_name">Affirmations</string>
+    
+    <!-- Teks afirmasi untuk setiap gunung beserta ketinggiannya -->
     <string name="affirmation1">Semeru, 3676 MDPL</string>
     <string name="affirmation2">Rinjani, 3726 MDPL</string>
     <string name="affirmation3">Slamet, 3428 MDPL</string>
