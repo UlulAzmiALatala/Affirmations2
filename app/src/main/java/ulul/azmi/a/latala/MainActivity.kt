@@ -32,13 +32,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AffirmationsTheme {
+            AffirmationsTheme { // Menggunakan tema khusus untuk aplikasi
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(), // Mengisi seluruh ukuran tampilan
+                    color = MaterialTheme.colorScheme.background // Menggunakan warna latar belakang dari tema
                 ) {
-                    AffirmationsApp()
+                    AffirmationsApp() // Memanggil fungsi Composable utama
                 }
             }
         }
@@ -47,18 +47,19 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun AffirmationsApp() {
+    // Memanggil fungsi untuk menampilkan daftar afirmasi
     AffirmationList(
-        affirmationList = Datasource().loadAffirmations(),
+        affirmationList = Datasource().loadAffirmations(), // Memuat daftar afirmasi dari sumber data
     )
 }
 
 @Composable
 fun AffirmationList(affirmationList: List<Affirmation>, modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        items(affirmationList) { affirmation ->
+    LazyColumn(modifier = modifier) { // Menggunakan LazyColumn untuk menampilkan daftar yang dapat digulir
+        items(affirmationList) { affirmation -> // Mengiterasi setiap item dalam daftar
             AffirmationCard(
-                affirmation = affirmation,
-                modifier = Modifier.padding(8.dp)
+                affirmation = affirmation, // Mengirimkan afirmasi ke fungsi Composable card
+                modifier = Modifier.padding(8.dp) // Menambahkan padding di sekitar card
             )
         }
     }
@@ -66,27 +67,28 @@ fun AffirmationList(affirmationList: List<Affirmation>, modifier: Modifier = Mod
 
 @Composable
 fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
-    Card(modifier = modifier) {
-        Column {
+    Card(modifier = modifier) { // Membuat card untuk setiap afirmasi
+        Column { // Mengatur elemen di dalam card dalam kolom
             Image(
-                painter = painterResource(affirmation.imageResourceId),
-                contentDescription = stringResource(affirmation.stringResourceId),
+                painter = painterResource(affirmation.imageResourceId), // Memuat gambar dari resource
+                contentDescription = stringResource(affirmation.stringResourceId), // Deskripsi konten untuk aksesibilitas
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(194.dp),
-                contentScale = ContentScale.Crop
+                    .fillMaxWidth() // Mengisi lebar maksimum
+                    .height(194.dp), // Mengatur tinggi gambar
+                contentScale = ContentScale.Crop // Memotong gambar agar sesuai dengan ukuran
             )
             Text(
-                text = LocalContext.current.getString(affirmation.stringResourceId),
-                modifier = Modifier.padding(16.dp),
-                style = MaterialTheme.typography.headlineSmall
+                text = LocalContext.current.getString(affirmation.stringResourceId), // Mengambil teks dari resource
+                modifier = Modifier.padding(16.dp), // Menambahkan padding di sekitar teks
+                style = MaterialTheme.typography.headlineSmall // Mengatur gaya teks
             )
         }
     }
 }
 
-@Preview
+@Preview // Menampilkan preview dari AffirmationCard di Android Studio
 @Composable
 private fun AffirmationCardPreview() {
+    // Menampilkan contoh kartu afirmasi dengan data dummy
     AffirmationCard(Affirmation(R.string.affirmation1, R.drawable.semeru))
 }
