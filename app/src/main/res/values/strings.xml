@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Affirmations</string>
+    <string name="affirmation1">Semeru, 3676 MDPL</string>
+    <string name="affirmation2">Rinjani, 3726 MDPL</string>
+    <string name="affirmation3">Slamet, 3428 MDPL</string>
+    <string name="affirmation4">Sumbing, 3371 MDPL</string>
+    <string name="affirmation5">Sindoro, 3136 MDPL</string>
+    <string name="affirmation6">Merbabu, 3145 MDPL</string>
+    <string name="affirmation7">Bromo, 2329 MDPL</string>
+    <string name="affirmation8">Jaya Wijaya, 4884 MDPL</string>
+    <string name="affirmation9">Lawu, 3265 MDPL </string>
+    <string name="affirmation10">Merapi, 2930 MDPL</string>
+</resources>
